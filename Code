@@ -8,6 +8,7 @@ screen = pygame.display.set_mode((500,300))
 #importation d'ume image pour l'arrière plan
 #ajouter image ( entre les '')
 background = pygame.image.load('K:/Docs/NSI/Game/Image/montagne.jpg')
+background = pygame.transform.scale(background,(500,300))
 
 running = True
 
@@ -27,3 +28,5 @@ while running:
             running = False
             pygame.quit()
             print("Have a nice day")
+
+
