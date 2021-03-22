@@ -1,0 +1,25 @@
+import pygame
+pygame.init()
+
+
+fond = pygame.display.set_mode(etc...)
+
+class Boutton(object):
+
+    police  = pygame.font...etc
+    boutton = pygame.image.load("images/boutonLettre.png")
+    rect    = boutton.get_rect()
+
+    def __init__(self,lettre,position):
+
+        self.image  = Boutton.boutton.copy()
+        self.rect   = Boutton.rect.copy()
+        lettre      = Boutton.police.render(lettre,True,(255,255,255))
+        rect_lettre = lettre.get_rect(center=Boutton.rect.center)
+        self.image.blit(lettre,rect_lettre)
+        self.rect.topleft = position
+
+
+A = Boutton('A',(100,550))
+fond.blit(A.image,A.rect)
+display.flip()
