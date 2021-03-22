@@ -5,6 +5,21 @@ pygame.init()
 pygame.display.set_caption("test")
 screen = pygame.display.set_mode((500,300))
 
+class Boutton(object):
+
+    police = pygame.font
+    boutton = pygame.image.load('K:/Docs/NSI/Game/Image/')
+    rect = boutton.get_rect()
+
+    def __init__(self,lettre,position):
+
+        self.image = Boutton.boutton.copy()
+        self.rect   = Boutton.rect.copy()
+        lettre = Boutton.police.render(lettre,True,(255,255,255))
+        rect_lettre = lettre.get_rect(center=Boutton.rect.center)
+        self.image.blit(lettre,rect_lettre)
+        self.rect.topleft = position
+
 def main_menu():
     #importation d'ume image pour l'arrière plan
     #ajouter image ( entre les '')
