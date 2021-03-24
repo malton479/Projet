@@ -1,0 +1,74 @@
+import pygame
+import os
+
+rep = os.getcwd()
+image= os.path.join(rep,'Image\K.jpg')
+image1 = os.path.join(rep,'Image\montagne.jpg')
+image2 = os.path.join(rep,'Image\smash.jpg')
+
+class Clavier(object):
+    #Classe clavier qui permet de crééer les boutons du clavier
+
+    police = pygame.font.Font(image,45)
+    boutton = pygame.image.load(image1)
+    boutton2 = pygame.image.load(image2)
+    rect = boutton.get_rect()
+    rect2 = boutton2.get_rect()
+
+    def __init__(self,lettre,position,fenetre):
+        self.image  = Clavier.boutton.copy()
+        self.image2 = Clavier.boutton2.copy()
+        self.rect   = Clavier.rect.copy()
+        self.fond = fenetre
+        self.lettre = lettre
+        self.position = position
+
+
+    def creation(self):
+        lettre = Clavier.police.render(self.lettre,True,(255,255,255))
+        rect_lettre = lettre.get_rect(center=Clavier.rect.center)
+        self.image.blit(lettre,rect_lettre)
+        self.rect.topleft = self.position
+        self.fond.blit(self.image,self.rect)
+
+    def clic(self):
+        lettre = Clavier.police.render(self.lettre,True,(255,255,255))
+        rect_lettre = lettre.get_rect(center=Clavier.rect2.center)
+        self.image2.blit(lettre,rect_lettre)
+        self.rect.topleft = self.position
+        self.fond.blit(self.image2,self.rect)
+
+
+#Classe Clavier
+
+fenetre = pygame.display.set_mode((1150, 700))
+fond = pygame.image.load("images/backgroundJeu.jpg").convert()
+pygame.display.set_caption("Jeu du pendu")
+fenetre.blit(fond,(0,0))
+
+#----------------------------Création du Clavier ----------------------------------------------
+z1= z2= 100
+clavier=[0]*26
+for i in range(26):
+    if i < 13 :
+        clavier[i] = Clavier(chr(65+i),(z1,540),fenetre)
+        clavier[i].creation()
+        z1 +=75
+    else:
+        clavier[i] = Clavier(chr(65+i),(z2,615),fenetre)
+        clavier[i].creation()
+        z2 +=75
+#-------------------------------------------------------------------------------------------------
+#Création d'une boucle infinie
+continuer = 1
+pygame.display.flip()
+while continuer:
+    mouse = pygame.mouse.get_pos()
+    for event in pygame.event.get(): #On parcours la liste de tous les événements reçus
+        if event.type == QUIT:     #Si un de ces événements est de type QUIT
+            continuer = 0
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            for i in range(26):
+                if clavier[i].rect.collidepoint(mouse):
+                    clavier[i].clic()
+                    pygame.display.flip()
