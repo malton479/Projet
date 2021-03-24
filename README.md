@@ -12,3 +12,7 @@ Aide pour les bouttons: https://www.developpez.net/forums/d1529350/autres-langag
   Encore la création du main menu, mais cette fois concentration sur les bouttons pour démarer le jeu.
 
 Traitement image python: https://moncoachdata.com/blog/10-outils-de-traitement-dimages-en-python/
+
+ Choisir image dans dossier du programme: https://openclassrooms.com/forum/sujet/ouvrir-une-image-dans-un-programme
+
+utilisation de os: https://python.developpez.com/cours/DiveIntoPython/php/frdiveintopython/file_handling/os_module.php
