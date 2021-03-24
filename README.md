@@ -18,3 +18,5 @@ Traitement image python: https://moncoachdata.com/blog/10-outils-de-traitement-d
 utilisation de os: https://python.developpez.com/cours/DiveIntoPython/php/frdiveintopython/file_handling/os_module.php
 
 Récuperation du répertoire: https://waytolearnx.com/2019/04/comment-recuperer-le-chemin-du-repertoire-courant-en-python.html#:~:text=Pour%20effectuer%20cette%20t%C3%A2che%2C%20nous,du%20r%C3%A9pertoire%20de%20travail%20courant.
+
+lier 2 programmes: https://www.developpez.net/forums/d228092/autres-langages/python/general-python/faire-communiquer-programmes-python/
