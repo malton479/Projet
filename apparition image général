@@ -10,7 +10,8 @@ screen = pygame.display.set_mode((500,300))
 def main_menu():
     #importation d'ume image pour l'arrière plan
     #ajouter image ( entre les '')
-    image = os.path.join('..','Image','montagne.png')
+    rep = os.getcwd()
+    image = os.path.join(rep,'Image\montagne.jpg')
     background = pygame.image.load(image)
     background = pygame.transform.scale(background,(500,300))
 
