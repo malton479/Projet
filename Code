@@ -1,4 +1,5 @@
 import pygame
+import os
 pygame.init()
 
 #on generation de la fenetre de jeu
@@ -7,7 +8,7 @@ screen = pygame.display.set_mode((500,300))
 
 class Boutton(object):
 
-    police = pygame.font
+    police = pygame.font.init()
     boutton = pygame.image.load('K:/Docs/NSI/Game/Image/')
     rect = boutton.get_rect()
 
@@ -23,7 +24,9 @@ class Boutton(object):
 def main_menu():
     #importation d'ume image pour l'arrière plan
     #ajouter image ( entre les '')
-    background = pygame.image.load('K:/Docs/NSI/Game/Image/montagne.jpg')
+    rep = os.getcwd()
+    image = os.path.join(rep,'Image\montagne.jpg')
+    background = pygame.image.load(image)
     background = pygame.transform.scale(background,(500,300))
 
     running = True
@@ -45,8 +48,8 @@ def main_menu():
                 pygame.quit()
                 print("Have a nice day")
 
-        start= Boutton('Start',(166,112.5))
-        fond.blit(start.image,start.rect)
+        #start= Boutton('Start',(166,112.5))
+        #fond.blit(start.image,start.rect)
         display.flip()
 
 main_menu()
