@@ -1,0 +1,40 @@
+import pygame
+import os
+pygame.init()
+
+#on generation de la fenetre de jeu
+pygame.display.set_caption("test")
+screen = pygame.display.set_mode((500,300))
+
+
+def main_menu():
+    #importation d'ume image pour l'arrière plan
+    #ajouter image ( entre les '')
+    image = os.path.join('..','Image','montagne.png')
+    background = pygame.image.load(image)
+    background = pygame.transform.scale(background,(500,300))
+
+    running = True
+
+    #la boucle continue tant que la condition est vrai
+    while running:
+
+        #appliquer l'arriere plan
+        screen.blit(background,(0,0))
+
+        #misa à jour de l'écran
+        pygame.display.flip()
+
+        #si fenetre fermé
+        for event in pygame.event.get():
+            #si l'evenement est la fermeture de la fenetre
+            if event.type == pygame.QUIT:
+                running = False
+                pygame.quit()
+                print("Have a nice day")
+
+        #start= Boutton('Start',(166,112.5))
+        #fond.blit(start.image,start.rect)
+        display.flip()
+
+main_menu()
