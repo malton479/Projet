@@ -7,3 +7,5 @@ Aide pour les bouttons: https://www.developpez.net/forums/d1529350/autres-langag
 
 1er jour de travail:
   Création du main menu pour pouvoir après lancer le jeu.
+
+Traitement image python: https://moncoachdata.com/blog/10-outils-de-traitement-dimages-en-python/
