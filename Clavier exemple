@@ -1,15 +1,18 @@
 import pygame
 import os
 
+pygame.init()
+
 rep = os.getcwd()
 image= os.path.join(rep,'Image\K.jpg')
 image1 = os.path.join(rep,'Image\montagne.jpg')
 image2 = os.path.join(rep,'Image\smash.jpg')
+image3 = os.path.join(rep,'Image\mop.png')
 
 class Clavier(object):
     #Classe clavier qui permet de crééer les boutons du clavier
 
-    police = pygame.font.Font(image,45)
+    police = pygame.font.SysFont("arial", 36)
     boutton = pygame.image.load(image1)
     boutton2 = pygame.image.load(image2)
     rect = boutton.get_rect()
@@ -42,7 +45,7 @@ class Clavier(object):
 #Classe Clavier
 
 fenetre = pygame.display.set_mode((1150, 700))
-fond = pygame.image.load("images/backgroundJeu.jpg").convert()
+fond = pygame.image.load(image3).convert()
 pygame.display.set_caption("Jeu du pendu")
 fenetre.blit(fond,(0,0))
 
@@ -65,7 +68,7 @@ pygame.display.flip()
 while continuer:
     mouse = pygame.mouse.get_pos()
     for event in pygame.event.get(): #On parcours la liste de tous les événements reçus
-        if event.type == QUIT:     #Si un de ces événements est de type QUIT
+        if event.type == pygame.QUIT:     #Si un de ces événements est de type QUIT
             continuer = 0
         elif event.type == pygame.MOUSEBUTTONDOWN:
             for i in range(26):
