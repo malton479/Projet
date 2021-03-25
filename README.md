@@ -8,7 +8,7 @@ Tuto de 10 épisode: https://www.youtube.com/watch?v=a0kcj6rRQ2s
 
 Aide pour les bouttons: https://www.developpez.net/forums/d1529350/autres-langages/python/programmation-multimedia-jeux/faire-bouton-pygame/
 
-2ème jour de travail():
+2ème jour de travail(2H):
   Encore la création du main menu, mais cette fois concentration sur les bouttons pour démarer le jeu.
 
 Traitement image python: https://moncoachdata.com/blog/10-outils-de-traitement-dimages-en-python/
