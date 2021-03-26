@@ -1,41 +1,50 @@
 import pygame
+from pygame.locals import *
 import os
+
+#Base pygame
 pygame.init()
+pygame.font.init()
 
-#on generation de la fenetre de jeu
-pygame.display.set_caption("test")
-screen = pygame.display.set_mode((500,300))
+#Récupérer le répertoire
+rep = os.getcwd()
 
+#Récup info
+info = pygame.display.Info()
 
-def main_menu():
-    #importation d'ume image pour l'arrière plan
-    #ajouter image ( entre les '')
-    rep = os.getcwd()
-    image = os.path.join(rep,'Image\montagne.jpg')
-    background = pygame.image.load(image)
-    background = pygame.transform.scale(background,(500,300))
+#Taille fenetre
+fenetre = pygame.display.set_mode((640,480), RESIZABLE)
+scrrec = fenetre.get_rect()
 
-    running = True
+#Fond d'écran
+image = os.path.join(rep,'Image\montagne.jpg')
+fond = pygame.image.load(image)
 
-    #la boucle continue tant que la condition est vrai
-    while running:
+#taille image
+fond = pygame.transform.scale(fond, (scrrec.right, scrrec.bottom))
+dimension_fondx = fond.get_width()
+dimension_fondy = fond.get_height()
 
-        #appliquer l'arriere plan
-        screen.blit(background,(0,0))
+#Apparition écran
+position_fond =(0,0)
 
-        #misa à jour de l'écran
-        pygame.display.flip()
+fenetre.blit(fond, position_fond)
 
-        #si fenetre fermé
-        for event in pygame.event.get():
-            #si l'evenement est la fermeture de la fenetre
-            if event.type == pygame.QUIT:
-                running = False
-                pygame.quit()
-                print("Have a nice day")
+pygame.display.flip()
 
-        #start= Boutton('Start',(166,112.5))
-        #fond.blit(start.image,start.rect)
-        display.flip()
+running = 1
 
-main_menu()
+while running:
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            running = 0
+        if event.type == KEYDOWN:
+            if event.key == K_ESCAPE:
+                runnig = 0
+        if event.type == VIDEORESIZE:
+            fenetre = pygame.display.set_mode((event.w, event.h), RESIZABLE)
+            fond = image
+            fond = pygame.transform.scale(fond,(event.w, event.h))
+    fenetre.blit(fond, position_fond)
+
+pygame.quit()
