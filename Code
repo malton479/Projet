@@ -1,39 +1,39 @@
 import pygame
 import os
+import clavier
 pygame.init()
 
 #on generation de la fenetre de jeu
 pygame.display.set_caption("test")
-screen = pygame.display.set_mode((500,300))
-
-class Boutton(object):
-
-    police = pygame.font.init()
-    boutton = pygame.image.load('K:/Docs/NSI/Game/Image/')
-    rect = boutton.get_rect()
-
-    def __init__(self,lettre,position):
-
-        self.image = Boutton.boutton.copy()
-        self.rect = Boutton.rect.copy()
-        lettre = Boutton.police.render(lettre,True,(255,255,255))
-        rect_lettre = lettre.get_rect(center=Boutton.rect.center)
-        self.image.blit(lettre,rect_lettre)
-        self.rect.topleft = position
+zx = 500
+zy = 300
+screen = pygame.display.set_mode((zx,zy))
 
 def main_menu():
     #importation d'ume image pour l'arrière plan
     #ajouter image ( entre les '')
+
     rep = os.getcwd()
     image = os.path.join(rep,'Image\montagne.jpg')
     background = pygame.image.load(image)
     background = pygame.transform.scale(background,(500,300))
 
+    z1= zx /10
+    z2 = zy/2
+
+    for i in range(3):
+        clavier[i] = Clavier(i,(z1,z2),screen)
+        clavier[i].creation()
+        z2 += zy/10
+
     running = True
 
     #la boucle continue tant que la condition est vrai
     while running:
+        #souris
+        mouse = pygame.mouse.get_pos()
 
+        #Fond d'écran
         #appliquer l'arriere plan
         screen.blit(background,(0,0))
 
@@ -47,9 +47,17 @@ def main_menu():
                 running = False
                 pygame.quit()
                 print("Have a nice day")
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                for i in range(26):
+                    if clavier[i].rect.collidepoint(mouse):
+                        clavier[i].clic()
+                        pygame.display.flip()
 
-        #start= Boutton('Start',(166,112.5))
-        #fond.blit(start.image,start.rect)
         display.flip()
 
+
+
+
+
 main_menu()
+
