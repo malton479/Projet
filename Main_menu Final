@@ -1,0 +1,13 @@
+import pygame
+import os
+
+#Base pygame
+pygame.init()
+pygame.font.init()
+
+#Récupérer le répertoire
+rep = os.getcwd()
+
+#Taille écran
+info = pygame.display.Info()
+fond = pygame.image.load()
