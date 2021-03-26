@@ -4,10 +4,10 @@ import os
 pygame.init()
 
 rep = os.getcwd()
-image= os.path.join(rep,'Image\K.jpg')
+image0= os.path.join(rep,'Image\K.jpg')
 image1 = os.path.join(rep,'Image\montagne.jpg')
 image2 = os.path.join(rep,'Image\smash.jpg')
-image3 = os.path.join(rep,'Image\mop.png')
+image3 = os.path.join(rep,'Image\mop.jpg')
 
 class Clavier(object):
     #Classe clavier qui permet de crééer les boutons du clavier
@@ -28,15 +28,21 @@ class Clavier(object):
 
 
     def creation(self):
+        if lettre == 0:
+            lettre = image0
+        elif lettre == 1:
+            lettre = image1
+        elif lettre == 2:
+            lettre = image2
+        else:
+            lettre = image3
         lettre = Clavier.police.render(self.lettre,True,(255,255,255))
         rect_lettre = lettre.get_rect(center=Clavier.rect.center)
-        self.image.blit(lettre,rect_lettre)
+        self.image.blit(lettre)
         self.rect.topleft = self.position
         self.fond.blit(self.image,self.rect)
 
     def clic(self):
-        lettre = Clavier.police.render(self.lettre,True,(255,255,255))
-        rect_lettre = lettre.get_rect(center=Clavier.rect2.center)
         self.image2.blit(lettre,rect_lettre)
         self.rect.topleft = self.position
         self.fond.blit(self.image2,self.rect)
